@@ -188,9 +188,8 @@ def validate_zip_code(zip_code):
         return False
     return True
 
-# Function to display the models RMSE
 def display_model_errors():
-    st.title('ML Models Performance 📉')
+    st.title('Model Performance Metrics 📉')
     
     st.markdown("""
         The main objective of this project was to build models that result in the lowest possible Root Mean Squared Error (RMSE) for each of the states to enhance prediction accuracy. For this reason, 15 random forest regression models were built. Some models are dedicated to only one specific state, while other models are used for several states.
@@ -206,11 +205,11 @@ def display_model_errors():
         rmse_df['RMSE'] = rmse_df['RMSE'].round(2)
         
         # Displaying the DataFrame as a table with formatted RMSE values
-        st.subheader('Models Root Mean Squared Error')
-        st.dataframe(rmse_df.style.format({'RMSE': '{:.2f}'}), index=False)
+        st.subheader('Model Performance Metrics')
+        formatted_df = rmse_df.style.format({'RMSE': '{:.2f}'})
+        st.dataframe(formatted_df)
     else:
         st.error("Model performance data is not loaded. Please check the file path and try again.")
-
 
 # Function to display the "About" section
 def display_about():
