@@ -192,22 +192,20 @@ def display_model_errors():
     st.title('Model Performance Metrics 📉')
     
     st.markdown("""
-        The main objective of this project was to build models that result in the lowest possible Root Mean Squared Error (RMSE) for each of the states to enhance prediction accuracy. For this reason, 15 random forest regression models were built. Some models are dedicated to only one specific state, while other models are used for several states.
+    The main objective of this project was to build models that result in the lowest possible Root Mean Squared Error (RMSE) for each of the states to enhance prediction accuracy. For this reason, 15 random forest regression models were built. Some models are dedicated to only one specific state, while other models are used for several states.
         
-        **What is RMSE?**
-        Root Mean Squared Error (RMSE) is a standard way to measure the error of a model in predicting quantitative data. Essentially, it represents the square root of the average of the squared differences between predicted values and actual values. The RMSE value tells us how concentrated the data is around the line of best fit.
+    **What is RMSE?**
+    Root Mean Squared Error (RMSE) is a standard way to measure the error of a model in predicting quantitative data. Essentially, it represents the square root of the average of the squared differences between predicted values and actual values. The RMSE value tells us how concentrated the data is around the line of best fit.
         
-        In the context of predicting apartment rent prices, an RMSE of $100 means that the average difference between the predicted rent prices and the actual rent prices is about $100. This implies that typically, the predictions made by the model can be expected to be off by $100. Therefore, a lower RMSE value is better as it indicates more accurate predictions by the model.
+    In the context of predicting apartment rent prices, an RMSE of $100 means that the average difference between the predicted rent prices and the actual rent prices is about $100. This implies that typically, the predictions made by the model can be expected to be off by $100. Therefore, a lower RMSE value is better as it indicates more accurate predictions by the model.
     """)
 
     if 'rmse_df' in globals():
         # Ensure RMSE values are rounded to two decimal places for display
         rmse_df['RMSE'] = rmse_df['RMSE'].round(2)
-        
-        # Displaying the DataFrame as a table with formatted RMSE values
-        st.subheader('Model Performance Metrics')
-        formatted_df = rmse_df.style.format({'RMSE': '{:.2f}'})
-        st.dataframe(formatted_df)
+
+        # Displaying the DataFrame as a static table without the index
+        st.table(rmse_df.assign(hack='').set_index('hack'))
     else:
         st.error("Model performance data is not loaded. Please check the file path and try again.")
 
