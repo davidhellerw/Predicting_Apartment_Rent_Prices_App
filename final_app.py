@@ -197,7 +197,7 @@ def display_model_errors():
     **What is RMSE?**
     Root Mean Squared Error (RMSE) is a standard way to measure the error of a model in predicting quantitative data. Essentially, it represents the square root of the average of the squared differences between predicted values and actual values. The RMSE value tells us how concentrated the data is around the line of best fit.
 
-    In the context of predicting apartment rent prices, an RMSE of 100 means that the average difference between the predicted rent prices and the actual rent prices is about $100. This implies that typically, the predictions made by the model can be expected to be off by $100. Therefore, a lower RMSE value is better as it indicates more accurate predictions by the model.
+    In the context of predicting apartment rent prices, an RMSE of 100 means that the average difference between the predicted rent prices and the actual rent prices is about \$100. This implies that typically, the predictions made by the model can be expected to be off by \$100. Therefore, a lower RMSE value is better as it indicates more accurate predictions by the model.
     """)
 
     if 'rmse_df' in globals():
