@@ -208,7 +208,7 @@ def display_model_errors():
         rmse_df.index = range(1, len(rmse_df) + 1)
         
         # Displaying the DataFrame as a table with formatted RMSE values
-        st.subheader('Model Performance Metrics')
+        st.subheader('Models RMSE')
         st.dataframe(rmse_df.style.format({'RMSE': '{:.2f}'}))
     else:
         st.error("Model performance data is not loaded. Please check the file path and try again.")
