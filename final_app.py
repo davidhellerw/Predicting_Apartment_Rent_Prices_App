@@ -188,6 +188,29 @@ def validate_zip_code(zip_code):
         return False
     return True
 
+# Function to display the models RMSE
+def display_model_errors():
+    st.title('ML Models Performance 📉')
+    
+    st.markdown("""
+        The main objective of this project was to build models that result in the lowest possible Root Mean Squared Error (RMSE) for each of the states to enhance prediction accuracy. For this reason, 15 random forest regression models were built. Some models are dedicated to only one specific state, while other models are used for several states.
+        
+        **What is RMSE?**
+        Root Mean Squared Error (RMSE) is a standard way to measure the error of a model in predicting quantitative data. Essentially, it represents the square root of the average of the squared differences between predicted values and actual values. The RMSE value tells us how concentrated the data is around the line of best fit.
+        
+        In the context of predicting apartment rent prices, an RMSE of $100 means that the average difference between the predicted rent prices and the actual rent prices is about $100. This implies that typically, the predictions made by the model can be expected to be off by $100. Therefore, a lower RMSE value is better as it indicates more accurate predictions by the model.
+    """)
+
+    if 'rmse_df' in globals():
+        # Ensure RMSE values are rounded to two decimal places for display
+        rmse_df['RMSE'] = rmse_df['RMSE'].round(2)
+        
+        # Displaying the DataFrame as a table with formatted RMSE values
+        st.subheader('Models Root Mean Squared Error')
+        st.dataframe(rmse_df.style.format({'RMSE': '{:.2f}'}), index=False)
+    else:
+        st.error("Model performance data is not loaded. Please check the file path and try again.")
+
 
 # Function to display the "About" section
 def display_about():
@@ -233,7 +256,7 @@ def main():
     st.title("🏠US Apartment Rent Price Prediction and Data Analytics🏠")
 
     # Sidebar navigation with radio buttons for tabs
-    page = st.sidebar.radio("Select a page", ["Predict Rent", "Data Analytics", "About"])
+    page = st.sidebar.radio("Select a page", ["Predict Rent", "Data Analytics", "Predictive Model Accuracy", "About"])
     st.sidebar.image(image, caption='Image generated with ChatGPT-4.0', use_column_width=True)
     
     # Create empty space to push the footer to the bottom
@@ -310,6 +333,9 @@ def main():
             display_analytics(df)  
         else:
             st.error("Apartment data is not loaded. Please check the file path and try again.")
+
+    elif page == "Predictive Model Accuracy":
+        display_model_errors()
 
     elif page == "About":
         display_about()
