@@ -221,7 +221,8 @@ def display_about():
                 
     **Features:**
     - Predict rent prices based on number of bathrooms, bedrooms, square feet, ZIP code, and state.
-    - View data analytics including top 10 states by average rent prices and 10 states with the lowest average rent prices.
+    - View data analytics including top 10 states by average rent prices and 10 states with the lowest average rent prices, and compare average monthly rent prices and distributions between two states.
+    - Understand the predictive accuracy of the machine learning models by state.
     
     **Data Sources:**
     - [Apartment data](https://archive.ics.uci.edu/dataset/555/apartment+for+rent+classified): The dataset, provided by the UCI Machine Learning Repository, contains 100,000 rows and 22 columns. It was cleaned before building the ML models.
