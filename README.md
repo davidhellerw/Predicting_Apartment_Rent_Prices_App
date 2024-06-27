@@ -3,7 +3,11 @@
 <h2>Overview</h2>
 <p>This Streamlit app is the culmination of an extensive data science project aimed at predicting monthly rent prices for apartments across various states in the U.S. The project was designed not only to enhance machine learning skills but also to create a functional application that provides real value to users looking to understand real estate pricing dynamics. From initial data gathering to deploying a fully functional app, this project involved detailed data cleaning, comprehensive exploratory data analysis, and the application of numerous machine learning models to identify the one that best predicts rental prices.</p>
 
-<a href="https://apartment-monthly-rent.streamlit.app/">App link</a>
+<a href="https://apartment-monthly-rent.streamlit.app/">US Apartment Rent Price Prediction and Data Analytics App</a>
+
+<a href="https://1drv.ms/p/s!Ao0pVqWLGOAwzwxUPvuU-O7yR5ZM?e=KHtbXq">PowerPoint Presentation</a>
+
+
 
 <h2>Project Complexity</h2>
 <p>The development of this application involved numerous stages, each requiring significant investment in time and effort:</p>
